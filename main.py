@@ -38,15 +38,15 @@ from telegram.constants import ChatType, ParseMode
 # =============================================================================
 # SECTION 2: CONFIGURATION (ENVIRONMENT-BASED)
 # =============================================================================
-DATABASE_URL = os.getenv("DATABASE_URL",
-BOT_TOKEN = os.getenv("BOT_TOKEN", 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", 
+DATABASE_URL = os.getenv("DATABASE_URL")
+BOT_TOKEN = os.getenv("BOT_TOKEN") 
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") 
 GLOBAL_OWNER_ID ="7728424218"
 
 # Webhook configuration (for Render)
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")          # e.g., https://your-app.onrender.com
-PORT =             # Render provides PORT
-WEBHOOK_LISTEN = 0.0.0.0")
+PORT = int(os.getenv("PORT", 8443))
+WEBHOOK_LISTEN = os.getenv("WEBHOOK_LISTEN", "0.0.0.0")
 
 IST = pytz.timezone("Asia/Kolkata")
 
