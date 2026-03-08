@@ -1084,10 +1084,10 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user = update.effective_user.first_name or "User"
         
         help_text = (
-            f"✨ **𝓛𝓾𝓶𝓲𝓻𝓪 - Help Menu** ✨\n\n"
+            f"✨ <b>𝓛𝓾𝓶𝓲𝓻𝓪 - Help Menu</b> ✨\n\n"
             f"👋 Hey {user}! Here are all commands:\n\n"
             f"━━━━━━━━━━━━━━━━━━━\n\n"
-            f"**👤 USER COMMANDS**\n"
+            f"<b>👤 USER COMMANDS</b>\n"
             f"┣ /rank - Your global stats\n"
             f"┣ /leaderboard - Top 10 global XP\n"
             f"┣ /riches - Top 10 global coins\n"
@@ -1103,14 +1103,14 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"┣ /gift (reply) - Send gift\n"
             f"┣ /mygifts - View your gifts\n"
             f"┗ /ai - Ask AI anything\n\n"
-            f"**🏰 GUILD COMMANDS**\n"
-            f"┣ /join_guild <name> - Join a guild\n"
+            f"<b>🏰 GUILD COMMANDS</b>\n"
+            f"┣ /join_guild &lt;name&gt; - Join a guild\n"
             f"┣ /leave_guild - Leave your guild\n"
             f"┣ /myguild - Your guild info\n"
             f"┣ /guild_leaderboard - Top guilds\n"
             f"┣ /guild_members - Guild members\n"
-            f"┗ /guild_info <name> - Guild details\n\n"
-            f"**👑 OWNER COMMANDS**\n"
+            f"┗ /guild_info &lt;name&gt; - Guild details\n\n"
+            f"<b>👑 OWNER COMMANDS</b>\n"
             f"┣ /analytics - Group insights\n"
             f"┣ /members - Member stats\n"
             f"┣ /addcoins - Add coins (reply)\n"
@@ -1122,18 +1122,19 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"⚡ Level up: {XP_PER_LEVEL} XP per level\n"
             f"🛡️ Shield: {SHIELD_COST} coins for {SHIELD_DURATION_HOURS}h\n"
             f"💰 Daily: {DAILY_COINS} coins\n\n"
-            f"💫 **Enjoy with 𝓛𝓾𝓶𝓲𝓻𝓪!**"
+            f"💫 <b>Enjoy with 𝓛𝓾𝓶𝓲𝓻𝓪!</b>"
         )
         
-        await update.message.reply_text(help_text, parse_mode=ParseMode.MARKDOWN)
+        await update.message.reply_text(help_text, parse_mode=ParseMode.HTML)
         
     except Exception as e:
         print(f"Help error: {e}")
         # Simple fallback
         await update.message.reply_text(
-            "✨ **𝓛𝓾𝓶𝓲𝓻𝓪 Commands** ✨\n\n"
+            "✨ <b>𝓛𝓾𝓶𝓲𝓻𝓪 Commands</b> ✨\n\n"
             "/rank, /daily, /shop, /roast, /kill, /gift, /join_guild\n\n"
-            "Use /start for welcome message"
+            "Use /start for welcome message",
+            parse_mode=ParseMode.HTML
         )
 
 @safe_reply
